@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
+
 class QuoteForm extends Component {
 
   state = {
@@ -11,10 +12,10 @@ class QuoteForm extends Component {
   }
 
   handleOnChange = event => {
-    const {value, name} = event.target;
+    const { value, name } = event.target;
     this.setState({
       [name]: value
-    })
+    });
   }
 
   handleOnSubmit = event => {
@@ -24,7 +25,7 @@ class QuoteForm extends Component {
     this.setState({
       content: '',
       author: ''
-    })
+    });
   }
 
   render() {
@@ -40,6 +41,7 @@ class QuoteForm extends Component {
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
                         onChange={this.handleOnChange}
                       />
@@ -51,6 +53,7 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
                         onChange={this.handleOnChange}
                       />
@@ -71,5 +74,4 @@ class QuoteForm extends Component {
   }
 }
 
-//add arguments to connect as needed
 export default connect(null, { addQuote })(QuoteForm);
