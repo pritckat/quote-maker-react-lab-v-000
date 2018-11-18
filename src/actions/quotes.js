@@ -5,7 +5,7 @@ export const addQuote = quote => {
   }
 }
 
-export const removeQuote = quote => {
+export const removeQuote = quote(d) => {
   return {
     type: 'REMOVE_QUOTE',
     quoteId
